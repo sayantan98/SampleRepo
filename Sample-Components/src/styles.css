@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import 'node_modules/ngx-toastr/toastr.css'; 
+@import "node_modules/ngx-spinner/animations/line-spin-fade.css";
+
+body{
+    background-color: black;
+}
+h2, h5, a {
+    color: white;
+}
+th, td {
+    text-align: center;
+}
+#toast-container > div { opacity:1; }

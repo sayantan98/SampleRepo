@@ -1,0 +1,37 @@
+<!-- Button trigger modal -->
+<div class="container mt-3">
+    <button type="button" class="btn btn-success alignright" title="add" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-keyboard="false" (click)="addClick()">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+</div>
+  <br /><br /><br />
+<table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Date of Joining</th>
+            <th scope="col">Profile Picture</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of emplist">
+            <td>{{employee.employeeId}}</td>
+            <td>{{employee.employeeName}}</td>
+            <td>{{employee.departmentName}}</td>
+            <td>{{employee.doj | date}}</td>
+            <td *ngIf='employee.profilePicture!="saved"'><img [src]="employee.picFile" height="200px" width="150px"></td>
+            <td *ngIf='employee.profilePicture=="saved"'>No pic uploaded till yet!!</td>
+            <td>
+                <button type="button" class="btn btn-success" title="edit" data-toggle="modal" data-target="#exampleModal" (click)="editClick(employee)">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" title="delete" (click)="deleteClick(employee.employeeId)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

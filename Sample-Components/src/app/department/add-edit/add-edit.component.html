@@ -1,0 +1,24 @@
+<div class="modal-header" style="background-color: rgb(130, 125, 125);">
+    <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form #heroForm="ngForm">
+      <div class="form-group">
+        <label for="exampleInputPassword1">Department Name</label>
+        <input type="text" class="form-control" id="departmentName" [(ngModel)]="dep.departmentName" name="departmentName" required>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+      Close
+    </button>
+    <button type="button" class="btn btn-primary" *ngIf="dep.departmentId==0" (click)="Save(heroForm)">Save changes</button>
+    <button type="button" class="btn btn-primary" *ngIf="dep.departmentId!=0" (click)="Update(heroForm)">Update changes</button>
+  </div>
